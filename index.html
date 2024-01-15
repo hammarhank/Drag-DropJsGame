@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Drag & Drop Word Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Word game Drag & Drop">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="icon" href="./images/logo.ico">
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+  <template id="dialog-template">
+    <style>
+      :host {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        display: none;
+      }
+
+      .dialog,
+      .congratulations {
+        background: white;
+        padding: 20px;
+        position: relative;
+        border-radius: 5px;
+        max-width: 500px;
+        text-align: center;
+        margin: auto;
+      }
+
+      .close-btn {
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: black;
+        font-size: 20px;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+
+    <div class="dialog">
+      <button class="close-btn">X</button>
+      <h2></h2>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+
+    <div class="congratulations hidden">
+      <button class="close-btn">X</button>
+      <h2></h2>
+      <p></p>
+    </div>
+  </template>
+
+  <div id="gameLogo" class="logo hidden">
+    <img src="./images/logo2.webp" alt="logo">
+  </div>
+
+  <div id="overlay" class="overlay">
+    <div id="correctImageContainer" class="correctImageContainer hidden">
+      <img src="./images/correct.webp" alt="Success">
+    </div>
+  </div>
+
+
+
+  <!--Language Interface-->
+  <div id="language-selection" class="centered-container">
+    <h2>Select Language</h2>
+    <button class="button-styled" id="englishButton">English</button>
+    <button class="button-styled" id="swedishButton">Svenska</button>
+    <button class="button-styled" id="adminButton">Admin</button>
+  </div>
+  <!-- Admin Interface -->
+  <div id="admin-view" class="centered-container hidden">
+    <h2>Admin Panel</h2>
+    <button id="adminEnButton" class="button-styled">English</button>
+    <button id="adminSvButton" class="button-styled">Svenska</button>
+    <div>
+      <input type="text" id="newSentence" placeholder="Enter new sentence" class="phrase">
+      <button class="button-styled" id="addSentence">Add Sentence</button>
+    </div>
+    <div id="sentenceList">
+
+    </div>
+    <button class="button-styled" id="writeToJsonButton">Save</button>
+  </div>
+
+  <div class="centered-container" id="centered-container">
+    <div id="splash-screen" class="view">
+      <img src="./images/splashscreen2.webp" class="splash-screen" alt="">
+    </div>
+
+    <div id="game-view" class="view hidden">
+      <div class="placeholderContainerStyle" id="placeholderContainer"></div>
+      <div class="draggableContainerStyle" id="draggableContainer"></div>
+      <div id="levelIndicator">Level: </div>
+      <div id="scoreDisplay">Score: </div>
+
+      <button id="guideButton" class="button-styled">Guide</button>
+      <button id="aboutButton" class="button-styled">About</button>
+      <help-dialog id="helpDialog"></help-dialog>
+    </div>
+
+  </div>
+
+
+  <script src="./helpDialog.js"></script>
+  <script src="./congratulations.js"></script>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>

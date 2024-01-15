@@ -1,0 +1,23 @@
+{
+    "name": "Drag & Drop Word Game",
+    "short_name": "WordGame",
+    "description": "A fun and interactive word game where you drag and drop words to form sentences.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FADCD9",
+    "theme_color": "#F8B88B",
+    "icons": [
+        {
+            "src": "images/logo2.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/logo2.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
